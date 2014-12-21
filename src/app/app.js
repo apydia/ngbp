@@ -1,13 +1,16 @@
-angular.module( 'ngBoilerplate', [
+angular.module( 'crunch', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about',
+  'crunch.contact',
+  'crunch.professional',
+  'crunch.skills',
+  'crunch.lab',
+  'crunch.blog',
   'ui.router'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/home' );
+  $urlRouterProvider.otherwise( '/contact' );
 })
 
 .run( function run () {
@@ -15,8 +18,9 @@ angular.module( 'ngBoilerplate', [
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
+      console.log("testest");
     if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
+      $scope.pageTitle = toState.data.pageTitle + ' | crunch' ;
     }
   });
 })
